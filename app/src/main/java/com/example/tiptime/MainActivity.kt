@@ -98,6 +98,7 @@ fun RoundTheTipRow(
             .fillMaxWidth()
             .size(48.dp),
         verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
             text = stringResource(id = R.string.round_up_tip)
@@ -105,9 +106,6 @@ fun RoundTheTipRow(
         Switch(
             checked = roundUp,
             onCheckedChange = onRoundUpChanged,
-            modifier = modifier
-                .fillMaxWidth()
-                .wrapContentWidth(Alignment.End)
         )
     }
 }
