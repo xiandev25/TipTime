@@ -85,6 +85,7 @@ fun EditNumberField(
 @Composable
 fun TipTimeLayout() {
     var amountInput by remember {mutableStateOf("")}
+    var tipInput by remember { mutableStateOf(value = "") }
 
     val tip = calculateTip(amountInput.toDoubleOrNull() ?: 0.0)
 
@@ -111,9 +112,9 @@ fun TipTimeLayout() {
                 .fillMaxWidth()
         )
         EditNumberField(
-            value = "",
+            value = tipInput,
             label = R.string.how_was_the_service,
-            onValueChanged = { },
+            onValueChanged = { tipInput = it },
             modifier = Modifier
                 .padding(bottom = 32.dp)
                 .fillMaxWidth()
