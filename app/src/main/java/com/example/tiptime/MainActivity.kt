@@ -114,8 +114,9 @@ fun RoundTheTipRow(
 
 @Composable
 fun TipTimeLayout() {
-    var amountInput by remember {mutableStateOf("")}
+    var amountInput by remember { mutableStateOf("") }
     var tipInput by remember { mutableStateOf(value = "") }
+    var roundUp by remember { mutableStateOf(false) }
 
     val amount = amountInput.toDoubleOrNull() ?: 0.0
     val tipPercentage = tipInput.toDoubleOrNull() ?: 0.0
@@ -158,6 +159,11 @@ fun TipTimeLayout() {
             modifier = Modifier
                 .padding(bottom = 32.dp)
                 .fillMaxWidth()
+        )
+        RoundTheTipRow(
+            roundUp = roundUp,
+            onRoundUpChanged = { roundUp = it },
+            modifier = Modifier.padding(bottom = 32.dp)
         )
         Text(
             text = stringResource(R.string.tip_amount, tip),
