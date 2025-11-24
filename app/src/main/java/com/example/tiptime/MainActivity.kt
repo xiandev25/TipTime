@@ -67,13 +67,14 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun EditNumberField(
     value: String,
+    label: Int,
     onValueChanged: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     TextField(
         value = value,
         onValueChange = onValueChanged,
-        label = { Text( text = stringResource(R.string.bill_amount)) },
+        label = { Text( text = stringResource(id = label)) },
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         modifier = modifier,
@@ -102,6 +103,7 @@ fun TipTimeLayout() {
         )
         EditNumberField(
             value = amountInput,
+            label = R.string.bill_amount,
             onValueChanged = { amountInput = it },
             modifier = Modifier
                 .padding(bottom = 32.dp)
