@@ -84,8 +84,7 @@ fun EditNumberField(
 fun TipTimeLayout() {
     var amountInput by remember {mutableStateOf("")}
 
-    val amount = amountInput.toDoubleOrNull() ?: 0.0
-    val tip = calculateTip(amount)
+    val tip = calculateTip(amountInput.toDoubleOrNull() ?: 0.0)
 
     Column(
         modifier = Modifier
